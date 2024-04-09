@@ -1,13 +1,13 @@
 <template>
-  <div class="home">
+  <div class="ListFinished">
     <!--
-       å¡ç‰‡æ¨¡å¼ï¼šæ˜¾ç¤ºä¸‰æ¡çš„æ¸…å•è®°å½• 
-    -->
-    <div class="home_content">
-      <div class="home_left">
+         ¿¨Æ¬Ä£Ê½£ºÏÔÊ¾ÈıÌõµÄÇåµ¥¼ÇÂ¼ 
+      -->
+    <div class="ListFinished_content">
+      <div class="ListFinished_left">
         <el-calendar @click="getDate()" v-model="date" />
       </div>
-      <div class="home_right">
+      <div class="ListFinished_right">
         <h4>{{ time }}</h4>
         <ul>
           <li v-for="taskItem in state.taskList" :key="taskItem.index">
@@ -21,71 +21,71 @@
 
 <script setup>
 import { reactive, ref, onMounted } from "vue";
-//æ—¥æœŸ
+//ÈÕÆÚ
 const date = ref(new Date());
 const items = ref([{ message: "Foo" }, { message: "Bar" }]);
 let time = ref({
   time: 0,
 });
-//æ¸…å•æ•°æ®
+//Çåµ¥Êı¾İ
 const state = reactive({
   taskList: [],
 });
-// ç”Ÿå‘½å‘¨æœŸé’©å­onMounted
+// ÉúÃüÖÜÆÚ¹³×ÓonMounted
 onMounted(() => {
   state.taskList = [
     {
       index: 1,
-      taskTitle: "èƒŒ30ä¸ªè‹±è¯­å•è¯",
+      taskTitle: "±³30¸öÓ¢Óïµ¥´Ê",
       isFinished: false,
     },
     {
       index: 2,
-      taskTitle: "å†™ä¸‰é“é«˜æ•°é¢˜",
+      taskTitle: "Ğ´ÈıµÀ¸ßÊıÌâ",
       isFinished: false,
     },
     {
       index: 3,
-      taskTitle: "å­¦ä¹ Promise",
+      taskTitle: "Ñ§Ï°Promise",
       isFinished: false,
     },
     {
       index: 4,
-      taskTitle: "å­¦ä¹ asyncå’Œawait",
+      taskTitle: "Ñ§Ï°asyncºÍawait",
       isFinished: false,
     },
   ];
 });
-//æ ¹æ®é€‰ä¸­çš„æ—¶é—´è·å–æ¸…å•
-/*æ ¹æ®ç”¨æˆ·idå’Œæ—¶é—´æˆ³æ¥è·å–æŒ‡å®šæ—¥æœŸçš„ä»»åŠ¡æ¸…å• */
+//¸ù¾İÑ¡ÖĞµÄÊ±¼ä»ñÈ¡Çåµ¥
+/*¸ù¾İÓÃ»§idºÍÊ±¼ä´ÁÀ´»ñÈ¡Ö¸¶¨ÈÕÆÚµÄÈÎÎñÇåµ¥ */
 function getDate() {
-  //å…ˆç”¨æ­»çš„æ•°æ®ä»£æ›¿
+  //ÏÈÓÃËÀµÄÊı¾İ´úÌæ
   /*
-   è·å–çš„æ˜¯ä¸€ä¸ªæ•°ç»„å¯¹è±¡ï¼š
-    æ¯ä¸ªå¯¹è±¡åŒ…å«
-    index:ä»»åŠ¡çš„id
-    taskTitleï¼šStringä»»åŠ¡
-    isFinishedï¼šboolean åˆ¤æ–­è¯¥ä»»åŠ¡æ˜¯å¦å®Œæˆ
-  */
+     »ñÈ¡µÄÊÇÒ»¸öÊı×é¶ÔÏó£º
+      Ã¿¸ö¶ÔÏó°üº¬
+      index:ÈÎÎñµÄid
+      taskTitle£ºStringÈÎÎñ
+      isFinished£ºboolean ÅĞ¶Ï¸ÃÈÎÎñÊÇ·ñÍê³É
+    */
   state.taskList = [
     {
       index: 1,
-      taskTitle: "èƒŒ10ä¸ªè‹±è¯­å•è¯",
+      taskTitle: "±³10¸öÓ¢Óïµ¥´Ê",
       isFinished: false,
     },
     {
       index: 2,
-      taskTitle: "å†™ä¸‰é“é«˜æ•°é¢˜",
+      taskTitle: "Ğ´ÈıµÀ¸ßÊıÌâ",
       isFinished: false,
     },
     {
       index: 3,
-      taskTitle: "å­¦ä¹ Promise",
+      taskTitle: "Ñ§Ï°Promise",
       isFinished: false,
     },
     {
       index: 4,
-      taskTitle: "å­¦ä¹ asyncå’Œawait",
+      taskTitle: "Ñ§Ï°asyncºÍawait",
       isFinished: false,
     },
   ];
@@ -93,26 +93,26 @@ function getDate() {
 </script>
 
 <style lang="less">
-.home {
-  .home_content {
+.ListFinished {
+  .ListFinished_content {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    .home_left {
+    .ListFinished_left {
       width: 600px;
       background: #2ec194;
       border-radius: 15px;
       box-shadow: 0 0 10px #074a99;
     }
 
-    .home_right {
+    .ListFinished_right {
       // background: rebeccapurple;
       width: 350px;
       min-height: 650px;
       padding: 20px;
       border: 1px solid black;
       border-radius: 5px;
-      background-image: url("../assets/Images/task/task1.png");
+      background-image: url("~@/assets/Images/task/task1.png");
     }
   }
 }
